@@ -52,7 +52,7 @@ const Dashboard = () => {
   // Function to fetch all jobs from the backend
   const fetchJobs = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/api/jobs', config)
+      const res = await axios.get('https://job-tracker-ipg4.onrender.com/api/jobs', config)
       setJobs(res.data)
     } catch (err) {
       setError('Failed to fetch jobs')
@@ -71,7 +71,7 @@ const Dashboard = () => {
     e.preventDefault()
     try {
       // Send POST request to create a new job
-      const res = await axios.post('http://localhost:5001/api/jobs', formData, config)
+      const res = await axios.post('https://job-tracker-ipg4.onrender.com/api/jobs', formData, config)
 
       // Add the new job to the top of the jobs list
       setJobs([res.data, ...jobs])
@@ -92,7 +92,7 @@ const Dashboard = () => {
     try {
       // Send PATCH request to update just the status field
       const res = await axios.patch(
-        `http://localhost:5001/api/jobs/${jobId}`,
+        `https://job-tracker-ipg4.onrender.com/api/jobs/${jobId}`,
         { status: newStatus },
         config
       )
@@ -108,7 +108,7 @@ const Dashboard = () => {
   // Called when user clicks delete on a job card
   const handleDelete = async (jobId) => {
     try {
-      await axios.delete(`http://localhost:5001/api/jobs/${jobId}`, config)
+      await axios.delete(`https://job-tracker-ipg4.onrender.com/api/jobs/${jobId}`, config)
 
       // Remove the deleted job from local state
       setJobs(jobs.filter(job => job._id !== jobId))

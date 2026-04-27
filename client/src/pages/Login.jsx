@@ -22,7 +22,7 @@ const Login = () => {
         setLoading(true)
         setError('')
         try {
-            const res = await axios.post('http://localhost:5001/api/auth/login', formData)
+            const res = await axios.post('https://job-tracker-ipg4.onrender.com/api/auth/login', formData)
             login(res.data) //saving user data to global context
             navigate('/dashboard')
         } catch (err) {

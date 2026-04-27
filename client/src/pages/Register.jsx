@@ -25,8 +25,8 @@ const Register = () => {
 
     try {
 
-      await axios.post('http://localhost:5001/api/auth/register', formData)
-      const loginRes = await axios.post('http://localhost:5001/api/auth/login', {
+      await axios.post('https://job-tracker-ipg4.onrender.com/api/auth/register', formData)
+      const loginRes = await axios.post('https://job-tracker-ipg4.onrender.com/api/auth/login', {
         email: formData.email,
         password: formData.password,
       })
